@@ -11,7 +11,7 @@ import SwiftUI
 struct TransactionsAndChangesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TransactionsView()
         }
     }
 }
