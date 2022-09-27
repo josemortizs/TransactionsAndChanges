@@ -14,6 +14,8 @@
 		DB640A7E28E35C95009918ED /* Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A7D28E35C95009918ED /* Change.swift */; };
 		DB640A8028E35D15009918ED /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A7F28E35D15009918ED /* Transaction.swift */; };
 		DB640A8328E35E10009918ED /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A8228E35E10009918ED /* Helpers.swift */; };
+		DB640A8728E39D73009918ED /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A8628E39D73009918ED /* TransactionsRepository.swift */; };
+		DB640A8A28E39E9F009918ED /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A8928E39E9F009918ED /* Endpoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,9 @@
 		DB640A7D28E35C95009918ED /* Change.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Change.swift; sourceTree = "<group>"; };
 		DB640A7F28E35D15009918ED /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		DB640A8228E35E10009918ED /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		DB640A8628E39D73009918ED /* TransactionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
+		DB640A8928E39E9F009918ED /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		DB640A8B28E3A61F009918ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +62,7 @@
 		DB640A6828E35B8C009918ED /* TransactionsAndChanges */ = {
 			isa = PBXGroup;
 			children = (
+				DB640A8B28E3A61F009918ED /* Info.plist */,
 				DB640A6928E35B8C009918ED /* TransactionsAndChangesApp.swift */,
 				DB640A7B28E35C58009918ED /* DataModules */,
 				DB640A7728E35BC5009918ED /* UseCases */,
@@ -93,6 +99,8 @@
 		DB640A7B28E35C58009918ED /* DataModules */ = {
 			isa = PBXGroup;
 			children = (
+				DB640A8828E39E74009918ED /* Constants */,
+				DB640A8428E39BC3009918ED /* API */,
 				DB640A8128E35DED009918ED /* Utils */,
 				DB640A7C28E35C73009918ED /* Models */,
 			);
@@ -114,6 +122,22 @@
 				DB640A8228E35E10009918ED /* Helpers.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DB640A8428E39BC3009918ED /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DB640A8628E39D73009918ED /* TransactionsRepository.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DB640A8828E39E74009918ED /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DB640A8928E39E9F009918ED /* Endpoints.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +213,9 @@
 				DB640A6A28E35B8C009918ED /* TransactionsAndChangesApp.swift in Sources */,
 				DB640A7A28E35BF5009918ED /* TransactionsView.swift in Sources */,
 				DB640A8028E35D15009918ED /* Transaction.swift in Sources */,
+				DB640A8A28E39E9F009918ED /* Endpoints.swift in Sources */,
 				DB640A8328E35E10009918ED /* Helpers.swift in Sources */,
+				DB640A8728E39D73009918ED /* TransactionsRepository.swift in Sources */,
 				DB640A7E28E35C95009918ED /* Change.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +348,7 @@
 				DEVELOPMENT_TEAM = 348MZJ2SHN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransactionsAndChanges/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +378,7 @@
 				DEVELOPMENT_TEAM = 348MZJ2SHN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransactionsAndChanges/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

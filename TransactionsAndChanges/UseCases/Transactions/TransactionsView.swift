@@ -30,6 +30,12 @@ struct TransactionsView: View {
             print(getChange(changes: changes, from: transations[1], to: "USD") ?? 0)
             print(getChange(changes: changes, from: transations[2], to: "EUR") ?? 0)
             
+            TransactionsRepository.fetchTransactions { data, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+            
         }
     }
 }

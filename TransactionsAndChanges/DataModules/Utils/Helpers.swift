@@ -8,7 +8,7 @@
 import Foundation
 
 func getChange(changes: [Change], from transaction: Transaction, to currency: String) -> Double? {
-        
+    
     guard let transactionAmount = transaction.operableAmount else {
         return nil
     }
