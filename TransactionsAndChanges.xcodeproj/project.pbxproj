@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB566CCC28E4B4C400F3E1BC /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566CCB28E4B4C400F3E1BC /* TransactionsViewModel.swift */; };
 		DB640A6A28E35B8C009918ED /* TransactionsAndChangesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A6928E35B8C009918ED /* TransactionsAndChangesApp.swift */; };
 		DB640A6E28E35B8E009918ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB640A6D28E35B8E009918ED /* Assets.xcassets */; };
 		DB640A7128E35B8E009918ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB640A7028E35B8E009918ED /* Preview Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB566CCB28E4B4C400F3E1BC /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		DB640A6628E35B8C009918ED /* TransactionsAndChanges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionsAndChanges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB640A6928E35B8C009918ED /* TransactionsAndChangesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsAndChangesApp.swift; sourceTree = "<group>"; };
 		DB640A6D28E35B8E009918ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				DB640A7928E35BF5009918ED /* TransactionsView.swift */,
+				DB566CCB28E4B4C400F3E1BC /* TransactionsViewModel.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				DB640A6A28E35B8C009918ED /* TransactionsAndChangesApp.swift in Sources */,
 				DB640A7A28E35BF5009918ED /* TransactionsView.swift in Sources */,
 				DB640A8028E35D15009918ED /* Transaction.swift in Sources */,
+				DB566CCC28E4B4C400F3E1BC /* TransactionsViewModel.swift in Sources */,
 				DB640A8A28E39E9F009918ED /* Endpoints.swift in Sources */,
 				DB640A8328E35E10009918ED /* Helpers.swift in Sources */,
 				DB640A8728E39D73009918ED /* TransactionsRepository.swift in Sources */,

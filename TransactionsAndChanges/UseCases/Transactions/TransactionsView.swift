@@ -8,34 +8,37 @@
 import SwiftUI
 
 struct TransactionsView: View {
+    
+    @StateObject var viewmodel = TransactionsViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).onAppear {
-            
-            let changes: [Change] = [
-                Change(from: "EUR", to: "USD", rate: "0.96190127"),
-                Change(from: "CAD", to: "EUR", rate: "0.75644943"),
-                Change(from: "USD", to: "EUR", rate: "1.0398248"),
-                Change(from: "EUR", to: "CAD", rate: "1.3217803")
-            ]
-
-            let transations: [Transaction] = [
-                Transaction(sku: "T2006", amount: "10.00", currency: "USD"),
-                Transaction(sku: "M2007", amount: "34.57", currency: "CAD"),
-                Transaction(sku: "R2008", amount: "17.95", currency: "USD"),
-                Transaction(sku: "T2006", amount: "7.63", currency: "EUR"),
-                Transaction(sku: "B2009", amount: "21.23", currency: "USD")
-            ]
-            
-            print(getChange(changes: changes, from: transations[0], to: "CAD") ?? 0)
-            print(getChange(changes: changes, from: transations[1], to: "USD") ?? 0)
-            print(getChange(changes: changes, from: transations[2], to: "EUR") ?? 0)
-            
-            TransactionsRepository.fetchTransactions { data, error in
-                if let error = error {
-                    print(error.localizedDescription)
+        VStack(alignment: .center) {
+            switch viewmodel.viewState {
+            case .loading:
+                loadingView
+            case .listwithtransactions:
+                listWithTransactions
+            }
+        }
+        .navigationTitle(Text("Transactions And Changes"))
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            self.viewmodel.fetchTransactions()
+        }
+    }
+    
+    var loadingView: some View {
+        Text("Estamos cargando los datos, por favor, sea paciente")
+    }
+    
+    var listWithTransactions: some View {
+        ScrollView {
+            if let transactions = viewmodel.transactions {
+                ForEach(transactions.keys.sorted(), id: \.self) { key in
+                    Text(key)
+                        .padding()
                 }
             }
-            
         }
     }
 }

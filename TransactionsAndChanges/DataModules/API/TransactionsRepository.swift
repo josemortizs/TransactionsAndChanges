@@ -34,13 +34,12 @@ final class TransactionsRepository {
                      let decoder = JSONDecoder()
                      do {
                          let transactions = try decoder.decode([Transaction].self, from: data)
-                         
-                         /* Prueba */
-                         let transactionsDictionary = Dictionary(grouping: transactions, by: { $0.sku })
-                         print(transactionsDictionary)
-                         /* Fin de prueba */
-                         
-                         callback(transactions, nil)
+                         /*
+                          Solo incluyo esta sentencia para simular una carga algo más lenta de los recursos de red, para que puedan observarse correctamente los cambios de estado de las vistas
+                          */
+                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                             callback(transactions, nil)
+                         }
                      } catch {
                          callback(nil, TransactionsAPIError.badSerialization)
                      }
