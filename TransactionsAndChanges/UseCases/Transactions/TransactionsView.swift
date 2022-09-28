@@ -11,6 +11,8 @@ struct TransactionsView: View {
     
     @StateObject var viewmodel = TransactionsViewModel()
     
+    @State var goToDetail: Bool = false
+    
     var body: some View {
         VStack(alignment: .center) {
             switch viewmodel.viewState {
@@ -20,6 +22,7 @@ struct TransactionsView: View {
                 listWithTransactions
             }
         }
+        .animation(.easeIn(duration: 1), value: viewmodel.viewState)
         .navigationTitle(Text("Transactions And Changes"))
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
@@ -35,8 +38,12 @@ struct TransactionsView: View {
         ScrollView {
             if let transactions = viewmodel.transactions {
                 ForEach(transactions.keys.sorted(), id: \.self) { key in
-                    Text(key)
-                        .padding()
+                    if let transactionsOfKey = viewmodel.transactions?[key] {
+                        TransactionRowView(sku: key, count: transactionsOfKey.count) {
+                            
+                            self.goToDetail.toggle()
+                        }
+                    }
                 }
             }
         }
@@ -48,3 +55,4 @@ struct TransactionsView_Previews: PreviewProvider {
         TransactionsView()
     }
 }
+
