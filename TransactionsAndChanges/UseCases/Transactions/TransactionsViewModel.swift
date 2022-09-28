@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum ViewState {
+enum TransactionsViewState {
     case loading
     case listwithtransactions
 }
 
 final class TransactionsViewModel: ObservableObject {
     
-    @Published var viewState: ViewState = .loading
+    @Published var viewState: TransactionsViewState = .loading
     @Published var transactions: [String : [Transaction]]?
     
     public final func fetchTransactions() {
@@ -29,6 +29,7 @@ final class TransactionsViewModel: ObservableObject {
             }
             
             if let error = error {
+                //TODO: Implemetar gestión de errores
                 print(error.localizedDescription)
             }
         }

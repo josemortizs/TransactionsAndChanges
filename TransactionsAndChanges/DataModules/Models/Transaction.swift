@@ -7,11 +7,14 @@
 
 import Foundation
 
-struct Transaction: Codable {
+struct Transaction: Codable, Identifiable {
     let sku: String
     let amount: String
     let currency: String
     var operableAmount: Double? {
         Double(self.amount)
+    }
+    var id: Int {
+        UUID().hashValue
     }
 }

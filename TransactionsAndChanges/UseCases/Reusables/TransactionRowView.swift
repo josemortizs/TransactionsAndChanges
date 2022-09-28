@@ -9,6 +9,43 @@ import SwiftUI
 
 struct TransactionRowView: View {
     
+    let amount: Double
+    let currencyFrom: String
+    let currencyTo: String
+    let amountFinal: Double?
+    
+    var body: some View {
+        VStack {
+            
+            HStack(alignment: .center) {
+                
+                Text(String(format: "%.2f", amount))
+                
+                Spacer()
+                
+                Text(currencyFrom)
+                
+                Spacer()
+                
+                Text(currencyTo)
+                
+                Spacer()
+                
+                if let amountFinal = amountFinal {
+                    Text(String(format: "%.2f", amountFinal))
+                } else {
+                    ProgressView()
+                }
+                
+            }.padding()
+            
+            Divider()
+        }
+    }
+}
+
+struct TransactionLinkRowView: View {
+    
     let sku: String
     let count: Int
     
@@ -37,11 +74,5 @@ struct TransactionRowView: View {
             }
             
         }.padding()
-    }
-}
-
-struct TransactionRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        TransactionRowView(sku: "T2006", count: 3) { }
     }
 }

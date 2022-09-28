@@ -13,13 +13,17 @@ struct TransactionsAndChangesApp: App {
     let coloredNavAppearance = UINavigationBarAppearance()
     
     init() {
-        coloredNavAppearance.configureWithOpaqueBackground()
-        coloredNavAppearance.backgroundColor = .systemBlue
-        coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        coloredNavAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        let appearance = UINavigationBarAppearance()
+        let proxy = UINavigationBar.appearance()
+
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .red
         
-        UINavigationBar.appearance().standardAppearance = coloredNavAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
+        proxy.tintColor = .white
+        proxy.standardAppearance = appearance
+        proxy.scrollEdgeAppearance = appearance
+        
     }
     
     var body: some Scene {
@@ -27,6 +31,7 @@ struct TransactionsAndChangesApp: App {
             NavigationView {
                 TransactionsView()
             }
+            .accentColor(.white)
         }
     }
 }

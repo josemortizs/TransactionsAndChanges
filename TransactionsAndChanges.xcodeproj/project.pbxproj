@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DB566CCC28E4B4C400F3E1BC /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566CCB28E4B4C400F3E1BC /* TransactionsViewModel.swift */; };
 		DB566CCF28E4DD1C00F3E1BC /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566CCE28E4DD1C00F3E1BC /* TransactionRowView.swift */; };
+		DB566CD228E4E45400F3E1BC /* ChangesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566CD128E4E45400F3E1BC /* ChangesView.swift */; };
+		DB566CD428E4E4C800F3E1BC /* ChangesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566CD328E4E4C800F3E1BC /* ChangesViewModel.swift */; };
 		DB640A6A28E35B8C009918ED /* TransactionsAndChangesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A6928E35B8C009918ED /* TransactionsAndChangesApp.swift */; };
 		DB640A6E28E35B8E009918ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB640A6D28E35B8E009918ED /* Assets.xcassets */; };
 		DB640A7128E35B8E009918ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB640A7028E35B8E009918ED /* Preview Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		DB566CCB28E4B4C400F3E1BC /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		DB566CCE28E4DD1C00F3E1BC /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
+		DB566CD128E4E45400F3E1BC /* ChangesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesView.swift; sourceTree = "<group>"; };
+		DB566CD328E4E4C800F3E1BC /* ChangesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesViewModel.swift; sourceTree = "<group>"; };
 		DB640A6628E35B8C009918ED /* TransactionsAndChanges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionsAndChanges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB640A6928E35B8C009918ED /* TransactionsAndChangesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsAndChangesApp.swift; sourceTree = "<group>"; };
 		DB640A6D28E35B8E009918ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +57,15 @@
 				DB566CCE28E4DD1C00F3E1BC /* TransactionRowView.swift */,
 			);
 			path = Reusables;
+			sourceTree = "<group>";
+		};
+		DB566CD028E4E43F00F3E1BC /* Changes */ = {
+			isa = PBXGroup;
+			children = (
+				DB566CD128E4E45400F3E1BC /* ChangesView.swift */,
+				DB566CD328E4E4C800F3E1BC /* ChangesViewModel.swift */,
+			);
+			path = Changes;
 			sourceTree = "<group>";
 		};
 		DB640A5D28E35B8C009918ED = {
@@ -95,6 +108,7 @@
 		DB640A7728E35BC5009918ED /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				DB566CD028E4E43F00F3E1BC /* Changes */,
 				DB566CCD28E4DC9F00F3E1BC /* Reusables */,
 				DB640A7828E35BD5009918ED /* Transactions */,
 			);
@@ -227,7 +241,9 @@
 				DB640A6A28E35B8C009918ED /* TransactionsAndChangesApp.swift in Sources */,
 				DB640A7A28E35BF5009918ED /* TransactionsView.swift in Sources */,
 				DB640A8028E35D15009918ED /* Transaction.swift in Sources */,
+				DB566CD428E4E4C800F3E1BC /* ChangesViewModel.swift in Sources */,
 				DB566CCC28E4B4C400F3E1BC /* TransactionsViewModel.swift in Sources */,
+				DB566CD228E4E45400F3E1BC /* ChangesView.swift in Sources */,
 				DB640A8A28E39E9F009918ED /* Endpoints.swift in Sources */,
 				DB640A8328E35E10009918ED /* Helpers.swift in Sources */,
 				DB640A8728E39D73009918ED /* TransactionsRepository.swift in Sources */,
