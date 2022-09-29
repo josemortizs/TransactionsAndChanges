@@ -69,7 +69,7 @@ struct TransactionLinkRowView: View {
             } label: {
                 Image(systemName: "arrow.forward.circle.fill")
                 .symbolRenderingMode(.monochrome)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color.red)
                 .font(.system(size: 32, weight: .regular))
             }
             
