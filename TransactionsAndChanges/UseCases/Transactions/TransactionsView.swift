@@ -22,6 +22,8 @@ struct TransactionsView: View {
                 loadingView
             case .listwithtransactions:
                 listWithTransactions
+            case .listwithtransactionsOffline:
+                listWithTransactionsOffline
             }
             
             navigationLinks
@@ -41,6 +43,26 @@ struct TransactionsView: View {
     
     var listWithTransactions: some View {
         ScrollView {
+            if let transactions = viewmodel.transactions {
+                ForEach(transactions.keys.sorted(), id: \.self) { key in
+                    if let transactionsOfKey = viewmodel.transactions?[key] {
+                        TransactionLinkRowView(sku: key, count: transactionsOfKey.count) {
+                            self.transactionsToSend = transactionsOfKey
+                            self.goToDetail.toggle()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    var listWithTransactionsOffline: some View {
+        ScrollView {
+            
+            Text("No hemos podido recuperar la información de las transacciones mediante nuestro servicio on-line, por favor, inténtalo de nuevo más tarde. Mientras tanto, te dejamos el listado que recuperamos en nuestra última sesión")
+                .multilineTextAlignment(.center)
+                .padding()
+            
             if let transactions = viewmodel.transactions {
                 ForEach(transactions.keys.sorted(), id: \.self) { key in
                     if let transactionsOfKey = viewmodel.transactions?[key] {

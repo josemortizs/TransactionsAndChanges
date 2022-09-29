@@ -10,6 +10,7 @@ import Foundation
 enum TransactionsViewState {
     case loading
     case listwithtransactions
+    case listwithtransactionsOffline
 }
 
 final class TransactionsViewModel: ObservableObject {
@@ -22,6 +23,11 @@ final class TransactionsViewModel: ObservableObject {
         TransactionsRepository.fetchTransactions { [weak self] data, error in
             
             if let data = data {
+                
+                DispatchQueue.init(label: "savedDataInOtherQueue").async {
+                    UserDefaultsTransitionsLocalRepository.saveTransactions(transactions: data)
+                }
+                
                 DispatchQueue.main.async {
                     self?.transactions = Dictionary(grouping: data, by: { $0.sku })
                     self?.viewState = .listwithtransactions
@@ -29,8 +35,13 @@ final class TransactionsViewModel: ObservableObject {
             }
             
             if let error = error {
-                //TODO: Implemetar gestión de errores
                 print(error.localizedDescription)
+                if let transactions = UserDefaultsTransitionsLocalRepository.getTransactions() {
+                    self?.transactions = Dictionary(grouping: transactions, by: { $0.sku })
+                    self?.viewState = .listwithtransactionsOffline
+                } else {
+                    //TODO: Gestionar viewState = .error
+                }
             }
         }
     }

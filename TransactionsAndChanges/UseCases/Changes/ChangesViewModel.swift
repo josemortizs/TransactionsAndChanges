@@ -10,6 +10,7 @@ import Foundation
 enum ChangesViewState {
     case listwithtransactions
     case listwithtransactionsAndChanges
+    case listwithtransactionsAndChangesOffline
 }
 
 final class ChangesViewModel: ObservableObject {
@@ -37,13 +38,23 @@ final class ChangesViewModel: ObservableObject {
         TransactionsRepository.fetchChanges { [weak self] data, error in
             
             if let data = data {
+                
+                DispatchQueue.init(label: "savedDataInOtherQueue").async {
+                    UserDefaultsTransitionsLocalRepository.saveChanges(changes: data)
+                }
+                
                 self?.changes = data
                 self?.viewState = .listwithtransactionsAndChanges
             }
             
             if let error = error {
-                //TODO: Implemetar gestión de errores
                 print(error.localizedDescription)
+                if let changes = UserDefaultsTransitionsLocalRepository.getChanges() {
+                    self?.changes = changes
+                    self?.viewState = .listwithtransactionsAndChangesOffline
+                } else {
+                    //TODO: Gestionar viewState = .error
+                }
             }
         }
     }

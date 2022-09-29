@@ -20,6 +20,9 @@
 		DB640A8328E35E10009918ED /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A8228E35E10009918ED /* Helpers.swift */; };
 		DB640A8728E39D73009918ED /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A8628E39D73009918ED /* TransactionsRepository.swift */; };
 		DB640A8A28E39E9F009918ED /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A8928E39E9F009918ED /* Endpoints.swift */; };
+		DBFC4A8128E61D5900230BBF /* TransactionsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC4A8028E61D5900230BBF /* TransactionsRepositoryProtocol.swift */; };
+		DBFC4A8628E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC4A8528E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift */; };
+		DBFC4A8828E6316200230BBF /* StringDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC4A8728E6316200230BBF /* StringDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		DB640A8628E39D73009918ED /* TransactionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
 		DB640A8928E39E9F009918ED /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		DB640A8B28E3A61F009918ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DBFC4A8028E61D5900230BBF /* TransactionsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		DBFC4A8528E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTransitionsLocalRepository.swift; sourceTree = "<group>"; };
+		DBFC4A8728E6316200230BBF /* StringDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +133,9 @@
 		DB640A7B28E35C58009918ED /* DataModules */ = {
 			isa = PBXGroup;
 			children = (
+				DBFC4A7F28E61CF600230BBF /* Protocols */,
 				DB640A8828E39E74009918ED /* Constants */,
+				DBFC4A8228E62FA700230BBF /* Local */,
 				DB640A8428E39BC3009918ED /* API */,
 				DB640A8128E35DED009918ED /* Utils */,
 				DB640A7C28E35C73009918ED /* Models */,
@@ -148,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				DB640A8228E35E10009918ED /* Helpers.swift */,
+				DBFC4A8728E6316200230BBF /* StringDecoder.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -166,6 +175,22 @@
 				DB640A8928E39E9F009918ED /* Endpoints.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		DBFC4A7F28E61CF600230BBF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DBFC4A8028E61D5900230BBF /* TransactionsRepositoryProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DBFC4A8228E62FA700230BBF /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				DBFC4A8528E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +266,7 @@
 				DB640A6A28E35B8C009918ED /* TransactionsAndChangesApp.swift in Sources */,
 				DB640A7A28E35BF5009918ED /* TransactionsView.swift in Sources */,
 				DB640A8028E35D15009918ED /* Transaction.swift in Sources */,
+				DBFC4A8828E6316200230BBF /* StringDecoder.swift in Sources */,
 				DB566CD428E4E4C800F3E1BC /* ChangesViewModel.swift in Sources */,
 				DB566CCC28E4B4C400F3E1BC /* TransactionsViewModel.swift in Sources */,
 				DB566CD228E4E45400F3E1BC /* ChangesView.swift in Sources */,
@@ -248,7 +274,9 @@
 				DB640A8328E35E10009918ED /* Helpers.swift in Sources */,
 				DB640A8728E39D73009918ED /* TransactionsRepository.swift in Sources */,
 				DB640A7E28E35C95009918ED /* Change.swift in Sources */,
+				DBFC4A8128E61D5900230BBF /* TransactionsRepositoryProtocol.swift in Sources */,
 				DB566CCF28E4DD1C00F3E1BC /* TransactionRowView.swift in Sources */,
+				DBFC4A8628E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

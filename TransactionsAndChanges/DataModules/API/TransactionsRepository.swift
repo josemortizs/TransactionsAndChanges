@@ -14,9 +14,9 @@ enum TransactionsAPIError: Error {
     case other(error: Error)
 }
 
-final class TransactionsRepository {
+final class TransactionsRepository: TransactionsRepositoryProtocol {
     
-    static func fetchChanges(callback: @escaping (_ data: [Change]?, _ error: Error?)-> Void) {
+    static func fetchChanges(callback: @escaping (_ data: [Change]?, _ error: Error?) -> Void) {
         
         if let url = URL_FETCH_CHANGES {
             

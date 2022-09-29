@@ -20,6 +20,8 @@ struct ChangesView: View {
                 listwithtransactions
             case .listwithtransactionsAndChanges:
                 listwithtransactionsAndChanges
+            case .listwithtransactionsAndChangesOffline:
+                listwithtransactionsAndChangesOffline
             }
         }
         .animation(.easeIn(duration: 1), value: viewmodel.viewState)
@@ -49,6 +51,25 @@ struct ChangesView: View {
     
     var listwithtransactionsAndChanges: some View {
         ScrollView {
+            
+            Text("Total transacciones: \(String(format: "%.2f", viewmodel.totalTransactionsInEUR)) EUR")
+                .bold()
+                .padding()
+            
+            ForEach(viewmodel.transactions) { transaction in
+                if let amount = transaction.operableAmount, let amountWithConversion = getChange(changes: viewmodel.changes, from: transaction, to: "EUR") {
+                    TransactionRowView(amount: amount, currencyFrom: transaction.currency, currencyTo: "EUR", amountFinal: amountWithConversion)
+                }
+            }
+        }
+    }
+    
+    var listwithtransactionsAndChangesOffline: some View {
+        ScrollView {
+            
+            Text("No hemos podido recuperar la información de los tipos de cambio actual mediante nuestro servicio on-line, por favor, inténtalo de nuevo más tarde. Mientras tanto, te dejamos el cálculo en base a los datos que recuperamos en nuestra última sesión")
+                .multilineTextAlignment(.center)
+                .padding()
             
             Text("Total transacciones: \(String(format: "%.2f", viewmodel.totalTransactionsInEUR)) EUR")
                 .bold()

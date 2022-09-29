@@ -29,9 +29,7 @@ func getChange(changes: [Change], from transaction: Transaction, to currency: St
     let possiblesTo: [Change] = changes.filter { $0.to == currency }
     
     possiblesFrom.forEach { changeFrom in
-        print(changeFrom)
         possiblesTo.forEach { changeTo in
-            print(changeTo)
             if changeFrom.to == changeTo.from && changeTo.to == currency {
                 if let rateFrom = changeFrom.operableRate, let rateTo = changeTo.operableRate {
                     amount = transactionAmount * rateFrom * rateTo
