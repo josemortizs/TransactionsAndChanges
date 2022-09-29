@@ -13,6 +13,7 @@ struct TransactionsAndChangesApp: App {
     let coloredNavAppearance = UINavigationBarAppearance()
     
     init() {
+        
         let appearance = UINavigationBarAppearance()
         let proxy = UINavigationBar.appearance()
 
@@ -23,7 +24,6 @@ struct TransactionsAndChangesApp: App {
         proxy.tintColor = .white
         proxy.standardAppearance = appearance
         proxy.scrollEdgeAppearance = appearance
-        
     }
     
     var body: some Scene {

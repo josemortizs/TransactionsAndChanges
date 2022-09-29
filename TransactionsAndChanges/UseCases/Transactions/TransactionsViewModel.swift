@@ -11,6 +11,7 @@ enum TransactionsViewState {
     case loading
     case listwithtransactions
     case listwithtransactionsOffline
+    case error
 }
 
 final class TransactionsViewModel: ObservableObject {
@@ -40,7 +41,7 @@ final class TransactionsViewModel: ObservableObject {
                     self?.transactions = Dictionary(grouping: transactions, by: { $0.sku })
                     self?.viewState = .listwithtransactionsOffline
                 } else {
-                    //TODO: Gestionar viewState = .error
+                    self?.viewState = .error
                 }
             }
         }

@@ -24,6 +24,8 @@ struct TransactionsView: View {
                 listWithTransactions
             case .listwithtransactionsOffline:
                 listWithTransactionsOffline
+            case .error:
+                errorView
             }
             
             navigationLinks
@@ -74,6 +76,11 @@ struct TransactionsView: View {
                 }
             }
         }
+    }
+    
+    var errorView: some View {
+        Text("Ha habido un error, no hemos podido recuperar la información de transacciones online y tampoco tenemos datos guardados de otra sesión. Inténtelo de nuevo más tarde")
+            .multilineTextAlignment(.center)
     }
     
     var navigationLinks: some View {

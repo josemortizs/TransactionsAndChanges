@@ -11,6 +11,7 @@ enum ChangesViewState {
     case listwithtransactions
     case listwithtransactionsAndChanges
     case listwithtransactionsAndChangesOffline
+    case error
 }
 
 final class ChangesViewModel: ObservableObject {
@@ -53,7 +54,7 @@ final class ChangesViewModel: ObservableObject {
                     self?.changes = changes
                     self?.viewState = .listwithtransactionsAndChangesOffline
                 } else {
-                    //TODO: Gestionar viewState = .error
+                    self?.viewState = .error
                 }
             }
         }

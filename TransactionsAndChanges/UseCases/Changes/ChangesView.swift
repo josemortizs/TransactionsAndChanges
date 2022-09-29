@@ -22,6 +22,8 @@ struct ChangesView: View {
                 listwithtransactionsAndChanges
             case .listwithtransactionsAndChangesOffline:
                 listwithtransactionsAndChangesOffline
+            case .error:
+                errorView
             }
         }
         .animation(.easeIn(duration: 1), value: viewmodel.viewState)
@@ -81,6 +83,11 @@ struct ChangesView: View {
                 }
             }
         }
+    }
+    
+    var errorView: some View {
+        Text("Ha habido un error, no hemos podido recuperar la información de transacciones online y tampoco tenemos datos guardados de otra sesión. Inténtelo de nuevo más tarde")
+            .multilineTextAlignment(.center)
     }
 }
 
