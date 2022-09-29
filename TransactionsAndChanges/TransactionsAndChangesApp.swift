@@ -9,9 +9,7 @@ import SwiftUI
 
 @main
 struct TransactionsAndChangesApp: App {
-    
-    let coloredNavAppearance = UINavigationBarAppearance()
-    
+        
     init() {
         
         let appearance = UINavigationBarAppearance()
