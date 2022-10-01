@@ -19,14 +19,22 @@ final class TransactionsViewModel: ObservableObject {
     @Published var viewState: TransactionsViewState = .loading
     @Published var transactions: [String : [Transaction]]?
     
+    let transactionsRepository: TransactionsRepositoryProtocol
+    let transactionsLocalRepository: TransactionsLocalRepositoryProtocol
+    
+    init(transactionsRepository: TransactionsRepositoryProtocol, transactionsLocalRepository: TransactionsLocalRepositoryProtocol) {
+        self.transactionsRepository = transactionsRepository
+        self.transactionsLocalRepository = transactionsLocalRepository
+    }
+    
     public final func fetchTransactions() {
         
-        TransactionsRepository.fetchTransactions { [weak self] data, error in
+        transactionsRepository.fetchTransactions { [weak self] data, error in
             
             if let data = data {
                 
                 DispatchQueue.init(label: "savedDataInOtherQueue").async {
-                    UserDefaultsTransitionsLocalRepository.saveTransactions(transactions: data)
+                    self?.transactionsLocalRepository.saveTransactions(transactions: data)
                 }
                 
                 DispatchQueue.main.async {
@@ -37,7 +45,7 @@ final class TransactionsViewModel: ObservableObject {
             
             if let error = error {
                 print(error.localizedDescription)
-                if let transactions = UserDefaultsTransitionsLocalRepository.getTransactions() {
+                if let transactions = self?.transactionsLocalRepository.getTransactions() {
                     self?.transactions = Dictionary(grouping: transactions, by: { $0.sku })
                     self?.viewState = .listwithtransactionsOffline
                 } else {

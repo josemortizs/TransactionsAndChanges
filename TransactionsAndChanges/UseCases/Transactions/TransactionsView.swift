@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TransactionsView: View {
     
-    @StateObject var viewmodel = TransactionsViewModel()
+    @StateObject var viewmodel = TransactionsViewModel(transactionsRepository: TransactionsRepository(), transactionsLocalRepository: UserDefaultsTransitionsLocalRepository())
     
     @State var goToDetail: Bool = false
     @State var transactionsToSend: [Transaction] = []

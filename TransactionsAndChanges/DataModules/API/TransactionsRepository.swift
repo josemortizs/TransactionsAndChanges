@@ -16,7 +16,7 @@ enum TransactionsAPIError: Error {
 
 final class TransactionsRepository: TransactionsRepositoryProtocol {
     
-    static func fetchChanges(callback: @escaping (_ data: [Change]?, _ error: Error?) -> Void) {
+    func fetchChanges(callback: @escaping (_ data: [Change]?, _ error: Error?) -> Void) {
         
         if let url = URL_FETCH_CHANGES {
             
@@ -56,7 +56,7 @@ final class TransactionsRepository: TransactionsRepositoryProtocol {
         }
     }
     
-    static func fetchTransactions(callback: @escaping (_ data: [Transaction]?, _ error: Error?) -> Void) {
+    func fetchTransactions(callback: @escaping (_ data: [Transaction]?, _ error: Error?) -> Void) {
         
         if let url = URL_FETCH_TRANSACTIONS {
             

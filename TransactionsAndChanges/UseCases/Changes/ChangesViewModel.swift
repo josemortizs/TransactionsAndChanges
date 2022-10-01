@@ -34,14 +34,22 @@ final class ChangesViewModel: ObservableObject {
         }
     }
     
+    let transactionsRepository: TransactionsRepositoryProtocol
+    let transactionsLocalRepository: TransactionsLocalRepositoryProtocol
+    
+    init(transactionsRepository: TransactionsRepositoryProtocol, transactionsLocalRepository: TransactionsLocalRepositoryProtocol) {
+        self.transactionsRepository = transactionsRepository
+        self.transactionsLocalRepository = transactionsLocalRepository
+    }
+    
     public final func fetchChanges() {
         
-        TransactionsRepository.fetchChanges { [weak self] data, error in
+        self.transactionsRepository.fetchChanges { [weak self] data, error in
             
             if let data = data {
                 
                 DispatchQueue.init(label: "savedDataInOtherQueue").async {
-                    UserDefaultsTransitionsLocalRepository.saveChanges(changes: data)
+                    self?.transactionsLocalRepository.saveChanges(changes: data)
                 }
                 
                 self?.changes = data
@@ -50,7 +58,7 @@ final class ChangesViewModel: ObservableObject {
             
             if let error = error {
                 print(error.localizedDescription)
-                if let changes = UserDefaultsTransitionsLocalRepository.getChanges() {
+                if let changes = self?.transactionsLocalRepository.getChanges() {
                     self?.changes = changes
                     self?.viewState = .listwithtransactionsAndChangesOffline
                 } else {

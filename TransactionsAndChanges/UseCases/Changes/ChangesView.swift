@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChangesView: View {
     
-    @StateObject var viewmodel = ChangesViewModel()
+    @StateObject var viewmodel = ChangesViewModel(transactionsRepository: TransactionsRepository(), transactionsLocalRepository: UserDefaultsTransitionsLocalRepository())
     
     var transactions: [Transaction]
     

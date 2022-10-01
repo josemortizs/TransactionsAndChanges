@@ -9,7 +9,7 @@ import Foundation
 
 final class UserDefaultsTransitionsLocalRepository: TransactionsLocalRepositoryProtocol {
     
-    static func saveChanges(changes: [Change]) {
+    func saveChanges(changes: [Change]) {
         
         let jsonEncoder = JSONEncoder()
         let userDefault = UserDefaults.standard
@@ -25,7 +25,7 @@ final class UserDefaultsTransitionsLocalRepository: TransactionsLocalRepositoryP
         }
     }
     
-    static func getChanges() -> [Change]? {
+    func getChanges() -> [Change]? {
         
         let userDefault = UserDefaults.standard
         let json = userDefault.string(forKey: "changes") ?? ""
@@ -34,7 +34,7 @@ final class UserDefaultsTransitionsLocalRepository: TransactionsLocalRepositoryP
 
     }
     
-    static func saveTransactions(transactions: [Transaction]) {
+    func saveTransactions(transactions: [Transaction]) {
         
         let jsonEncoder = JSONEncoder()
         let userDefault = UserDefaults.standard
@@ -50,7 +50,7 @@ final class UserDefaultsTransitionsLocalRepository: TransactionsLocalRepositoryP
         }
     }
     
-    static func getTransactions() -> [Transaction]? {
+    func getTransactions() -> [Transaction]? {
         
         let userDefault = UserDefaults.standard
         let json = userDefault.string(forKey: "transactions") ?? ""
