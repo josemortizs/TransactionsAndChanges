@@ -1,5 +1,5 @@
 //
-//  UserDefaultsTransitionsLocalRepository.swift
+//  UserDefaultsTransactionsLocalRepository.swift
 //  TransactionsAndChanges
 //
 //  Created by Jose Manuel Ortiz Sanchez on 29/9/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class UserDefaultsTransitionsLocalRepository: TransactionsLocalRepositoryProtocol {
+final class UserDefaultsTransactionsLocalRepository: TransactionsLocalRepositoryProtocol {
     
     func saveChanges(changes: [Change]) {
         
@@ -29,9 +29,8 @@ final class UserDefaultsTransitionsLocalRepository: TransactionsLocalRepositoryP
         
         let userDefault = UserDefaults.standard
         let json = userDefault.string(forKey: "changes") ?? ""
-        
-        return StringDecoder.decode(model: Change.self, stringData: json)
-
+        let changes: [Change]? = StringDecoder.decode(model: Change.self, stringData: json)
+        return changes
     }
     
     func saveTransactions(transactions: [Transaction]) {
@@ -54,7 +53,7 @@ final class UserDefaultsTransitionsLocalRepository: TransactionsLocalRepositoryP
         
         let userDefault = UserDefaults.standard
         let json = userDefault.string(forKey: "transactions") ?? ""
-        
-        return StringDecoder.decode(model: Transaction.self, stringData: json)
+        let transactions: [Transaction]? = StringDecoder.decode(model: Transaction.self, stringData: json)
+        return transactions
     }
 }

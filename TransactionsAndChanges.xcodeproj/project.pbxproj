@@ -11,6 +11,7 @@
 		DB566CCF28E4DD1C00F3E1BC /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566CCE28E4DD1C00F3E1BC /* TransactionRowView.swift */; };
 		DB566CD228E4E45400F3E1BC /* ChangesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566CD128E4E45400F3E1BC /* ChangesView.swift */; };
 		DB566CD428E4E4C800F3E1BC /* ChangesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB566CD328E4E4C800F3E1BC /* ChangesViewModel.swift */; };
+		DB583A7628E9E14D00129BF3 /* FilesTransactionsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB583A7528E9E14D00129BF3 /* FilesTransactionsLocalRepository.swift */; };
 		DB640A6A28E35B8C009918ED /* TransactionsAndChangesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A6928E35B8C009918ED /* TransactionsAndChangesApp.swift */; };
 		DB640A6E28E35B8E009918ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB640A6D28E35B8E009918ED /* Assets.xcassets */; };
 		DB640A7128E35B8E009918ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB640A7028E35B8E009918ED /* Preview Assets.xcassets */; };
@@ -21,7 +22,7 @@
 		DB640A8728E39D73009918ED /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A8628E39D73009918ED /* TransactionsRepository.swift */; };
 		DB640A8A28E39E9F009918ED /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB640A8928E39E9F009918ED /* Endpoints.swift */; };
 		DBFC4A8128E61D5900230BBF /* TransactionsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC4A8028E61D5900230BBF /* TransactionsRepositoryProtocol.swift */; };
-		DBFC4A8628E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC4A8528E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift */; };
+		DBFC4A8628E6303900230BBF /* UserDefaultsTransactionsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC4A8528E6303900230BBF /* UserDefaultsTransactionsLocalRepository.swift */; };
 		DBFC4A8828E6316200230BBF /* StringDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC4A8728E6316200230BBF /* StringDecoder.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		DB566CCE28E4DD1C00F3E1BC /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
 		DB566CD128E4E45400F3E1BC /* ChangesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesView.swift; sourceTree = "<group>"; };
 		DB566CD328E4E4C800F3E1BC /* ChangesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesViewModel.swift; sourceTree = "<group>"; };
+		DB583A7528E9E14D00129BF3 /* FilesTransactionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTransactionsLocalRepository.swift; sourceTree = "<group>"; };
 		DB640A6628E35B8C009918ED /* TransactionsAndChanges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionsAndChanges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB640A6928E35B8C009918ED /* TransactionsAndChangesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsAndChangesApp.swift; sourceTree = "<group>"; };
 		DB640A6D28E35B8E009918ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,7 +44,7 @@
 		DB640A8928E39E9F009918ED /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		DB640A8B28E3A61F009918ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DBFC4A8028E61D5900230BBF /* TransactionsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRepositoryProtocol.swift; sourceTree = "<group>"; };
-		DBFC4A8528E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTransitionsLocalRepository.swift; sourceTree = "<group>"; };
+		DBFC4A8528E6303900230BBF /* UserDefaultsTransactionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTransactionsLocalRepository.swift; sourceTree = "<group>"; };
 		DBFC4A8728E6316200230BBF /* StringDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +190,8 @@
 		DBFC4A8228E62FA700230BBF /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				DBFC4A8528E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift */,
+				DBFC4A8528E6303900230BBF /* UserDefaultsTransactionsLocalRepository.swift */,
+				DB583A7528E9E14D00129BF3 /* FilesTransactionsLocalRepository.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				DB640A8028E35D15009918ED /* Transaction.swift in Sources */,
 				DBFC4A8828E6316200230BBF /* StringDecoder.swift in Sources */,
 				DB566CD428E4E4C800F3E1BC /* ChangesViewModel.swift in Sources */,
+				DB583A7628E9E14D00129BF3 /* FilesTransactionsLocalRepository.swift in Sources */,
 				DB566CCC28E4B4C400F3E1BC /* TransactionsViewModel.swift in Sources */,
 				DB566CD228E4E45400F3E1BC /* ChangesView.swift in Sources */,
 				DB640A8A28E39E9F009918ED /* Endpoints.swift in Sources */,
@@ -276,7 +280,7 @@
 				DB640A7E28E35C95009918ED /* Change.swift in Sources */,
 				DBFC4A8128E61D5900230BBF /* TransactionsRepositoryProtocol.swift in Sources */,
 				DB566CCF28E4DD1C00F3E1BC /* TransactionRowView.swift in Sources */,
-				DBFC4A8628E6303900230BBF /* UserDefaultsTransitionsLocalRepository.swift in Sources */,
+				DBFC4A8628E6303900230BBF /* UserDefaultsTransactionsLocalRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
